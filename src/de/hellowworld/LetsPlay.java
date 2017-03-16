@@ -86,7 +86,7 @@ public class LetsPlay implements Spieler {
 		results.put("11", "0");
 		results.put("12", "2");
 		results.put("13", "1");
-		results.put("14", "2");
+		results.put("14", "1");
 		results.put("15", "2");
 		results.put("21", "1");
 		results.put("22", "0");
@@ -98,7 +98,7 @@ public class LetsPlay implements Spieler {
 		results.put("33", "0");
 		results.put("34", "1");
 		results.put("35", "2");
-		results.put("41", "1");
+		results.put("41", "2");
 		results.put("42", "1");
 		results.put("43", "2");
 		results.put("44", "0");
