@@ -8,4 +8,6 @@ public interface Spieler {
 
 	void println(String string);
 
+	void ergebnissMitteilen(int ergebniss);
+
 }

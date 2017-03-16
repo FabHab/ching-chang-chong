@@ -10,12 +10,25 @@ public class LetsPlayTest {
 	private int KomischerSpieler;
 	private int iRandomGenerator;
 	private int iSpieler;
-	private int iSpieler1;
-	private int iSpieler2;
-	private int iSpieler3;
-	private int iSpieler4;
-	private int iSpieler5;
 
+	@Test
+	public void testAI() throws Exception {
+		int ergebniss = -1;
+		Spieler cortana = new AISpieler();
+		ergebniss = LetsPlay.rundeSpielen(cortana);
+		sammelnvondaten(ergebniss);
+	}
+	
+	@Test
+	public void testAI_500() throws Exception {
+		for (int i = 0; i < 5000; i++) {
+			testAI();
+
+		}
+		System.out.println(KomischerSpieler);
+		System.out.println(KomischerRandomGenerator);
+	}
+	
 	@Test
 	public void testRundeSpielen() throws Exception {
 		int ergebniss = -1;
@@ -36,6 +49,7 @@ public class LetsPlayTest {
 		sammelnvondaten(ergebniss);
 		Spieler testTmp6 = new RandomSpieler();
 		ergebniss = LetsPlay.rundeSpielen(testTmp6);
+		
 
 	}
 
@@ -112,7 +126,7 @@ public class LetsPlayTest {
 	public void testFor5() throws Exception {
 		iSpieler = 0;
 		iRandomGenerator = 0;
-		for (int i = 0; i < 100000; i++) {
+		for (int i = 0; i < 1000; i++) {
 			SpielenSchere();
 		}
 		System.out.println("SpielenSchere :" +iSpieler );
@@ -120,7 +134,7 @@ public class LetsPlayTest {
 
 		iSpieler = 0;
 		iRandomGenerator = 0;
-		for (int i = 0; i < 10000; i++) {
+		for (int i = 0; i < 100; i++) {
 			SpielenStein();
 		}
 		System.out.println("SpielenStein :" +iSpieler );
@@ -129,7 +143,7 @@ public class LetsPlayTest {
 		
 		iSpieler = 0;
 		iRandomGenerator = 0;
-		for (int i = 0; i < 100000; i++) {
+		for (int i = 0; i < 1000; i++) {
 			SpielenPapier();
 		}
 		System.out.println("SpielenPapier :" +iSpieler );
@@ -138,7 +152,7 @@ public class LetsPlayTest {
 		
 		iSpieler = 0;
 		iRandomGenerator = 0;
-		for (int i = 0; i < 100000; i++) {
+		for (int i = 0; i < 1000; i++) {
 			SpielenEchse();
 		}
 		System.out.println("SpielenEchse :" +iSpieler );
@@ -147,7 +161,7 @@ public class LetsPlayTest {
 		
 		iSpieler = 0;
 		iRandomGenerator = 0;
-		for (int i = 0; i < 100000; i++) {
+		for (int i = 0; i < 1000; i++) {
 			SpielenSpock();
 		}
 		System.out.println("SpielenSpock :" +iSpieler );
@@ -155,13 +169,12 @@ public class LetsPlayTest {
 		
 		iSpieler = 0;
 		iRandomGenerator = 0;
-		for (int i = 0; i < 100000; i++) {
+		for (int i = 0; i < 1000; i++) {
 			RandomSpieler();
 		}
 		System.out.println("RandomSpieler :" +iSpieler );
 		System.out.println("iRandomGenerator  ::"+iRandomGenerator );
 		
-	
 	}
 
 
@@ -169,5 +182,6 @@ public class LetsPlayTest {
 
 	
 	
+
 
 

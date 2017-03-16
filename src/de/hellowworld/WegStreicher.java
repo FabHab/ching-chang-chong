@@ -9,4 +9,11 @@ public abstract class WegStreicher implements Spieler {
 		//SammelnDerDatenln(string);
 	}
 
+	
+	@Override
+	public void ergebnissMitteilen(int ergebniss) {
+		// TODO Auto-generated method stub
+		
+	}	
+	
 }

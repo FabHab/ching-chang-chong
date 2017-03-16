@@ -1,6 +1,12 @@
 package de.hellowworld;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Reader;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,9 +40,13 @@ public class LetsPlay implements Spieler {
 		actor.println("4 = Echse");
 		actor.println("5 = Spock");
 		int antwortVonMensch = actor.getInput();
-		int antwortVonProgramm = getRandom();
+		Spieler gegnerTmp = new RandomSpieler(); //new AISpieler();//new RandomSpieler();
+		int antwortVonProgramm = gegnerTmp.getInput();
+		
 		actor.println(ZahlZuText(antwortVonMensch) +"--- gegen ---" + ZahlZuText(antwortVonProgramm));
 		int Ergebnis = rufRichter(antwortVonMensch, antwortVonProgramm);
+		actor.ergebnissMitteilen(Ergebnis);
+		gegnerTmp.ergebnissMitteilen(Ergebnis);
 
 		actor.println("Ergebnis:" + ZahlenVonRichterUmwandeln(Ergebnis));
 		return Ergebnis;
@@ -121,7 +131,7 @@ public class LetsPlay implements Spieler {
 	 * 
 	 * @return
 	 */
-	public static int getRandom() {
+	public static final int getRandom() {
 		int allowedAnswers[] = new int[] { 1, 2, 3, 4, 5};
 		return allowedAnswers[(int) (Math.random() * 5)];
 	}
@@ -154,4 +164,28 @@ public class LetsPlay implements Spieler {
 		}
 		return i;
 	}
+
+	@Override
+	public void ergebnissMitteilen(int ergebniss) {
+		// TODO Auto-generated method stub
+		// System.out.println("ergebniss::"+ergebniss);
+		
+	}
+	
+	public String persistString(String s) throws IOException{
+		File f = new File( "AI.database" );
+		BufferedReader in;
+		String sTmp = null;
+		if (f.exists()){
+			in = new BufferedReader( new FileReader(f));
+			sTmp = in.readLine();
+			in.close();
+		}
+		if (s != null) {
+			BufferedWriter out = new BufferedWriter(new FileWriter(f));
+			out.write(s);
+			out.close();
+		}
+		return sTmp;
+	 }
 }

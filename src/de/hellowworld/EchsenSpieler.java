@@ -9,4 +9,6 @@ public class EchsenSpieler extends WegStreicher {
 		return 4;
 	}
 
+
+
 }
