@@ -34,6 +34,8 @@ public class LetsPlayTest {
 		Spieler testTmp5 = new SpockSpieler();
 		ergebniss = LetsPlay.rundeSpielen(testTmp5);
 		sammelnvondaten(ergebniss);
+		Spieler testTmp6 = new RandomSpieler();
+		ergebniss = LetsPlay.rundeSpielen(testTmp6);
 
 	}
 
@@ -91,7 +93,15 @@ public class LetsPlayTest {
 		sammelnFor5(ergebniss);
 
 	}
+	
+	@Test
+	public void RandomSpieler() throws Exception {
+		int ergebniss = -1;
+		Spieler testTmp6 = new RandomSpieler();
+		ergebniss = LetsPlay.rundeSpielen(testTmp6);
+		sammelnFor5(ergebniss);
 
+	}
 
 	public void sammelnFor5(int ergebniss) {
 		iSpieler += (ergebniss == 1) ? 1 : 0;
@@ -141,6 +151,14 @@ public class LetsPlayTest {
 			SpielenSpock();
 		}
 		System.out.println("SpielenSpock :" +iSpieler );
+		System.out.println("iRandomGenerator  ::"+iRandomGenerator );
+		
+		iSpieler = 0;
+		iRandomGenerator = 0;
+		for (int i = 0; i < 100000; i++) {
+			RandomSpieler();
+		}
+		System.out.println("RandomSpieler :" +iSpieler );
 		System.out.println("iRandomGenerator  ::"+iRandomGenerator );
 		
 	

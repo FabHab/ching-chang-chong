@@ -121,7 +121,7 @@ public class LetsPlay implements Spieler {
 	 * 
 	 * @return
 	 */
-	private static int getRandom() {
+	public static int getRandom() {
 		int allowedAnswers[] = new int[] { 1, 2, 3, 4, 5};
 		return allowedAnswers[(int) (Math.random() * 5)];
 	}
